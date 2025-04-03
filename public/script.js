@@ -416,3 +416,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCarousel();
 });
+
+  //------------------------------------------------------------------------------------------------
+//reduto eleitoral
+document.addEventListener("DOMContentLoaded", function() {
+  const selector = document.getElementById("iframeSelector");
+  const iframes = document.querySelectorAll("#iframeContainer iframe");
+
+  let currentIframe = null; // Armazena o iframe atualmente visível
+
+  selector.addEventListener("change", function() {
+      const selectedId = selector.value;
+
+      if (selectedId) {
+          const selectedIframe = document.getElementById(selectedId);
+
+          if (currentIframe) {
+              // Aplica a classe de saída ao iframe atual
+              currentIframe.classList.add("iframe-slide-exit");
+              currentIframe.classList.remove("iframe-slide-exit-active");
+
+              // Aguarda a conclusão da animação de saída
+              setTimeout(() => {
+                  currentIframe.style.display = "none";
+                  currentIframe.classList.remove("iframe-slide-exit");
+              }, 500); // Tempo igual à duração da transição no CSS
+          }
+
+          // Exibe o novo iframe com a classe de entrada
+          selectedIframe.style.display = "block";
+          selectedIframe.classList.add("iframe-slide-enter");
+          setTimeout(() => {
+              selectedIframe.classList.add("iframe-slide-enter-active");
+              selectedIframe.classList.remove("iframe-slide-enter");
+          }, 10); // Pequeno delay para garantir que a classe seja aplicada
+
+          // Atualiza o iframe atual
+          currentIframe = selectedIframe;
+      }
+  });
+});
