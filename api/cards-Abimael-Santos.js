@@ -6,7 +6,7 @@ export default function handler(req, res) {
       descricao:
         "Natural de Toritama, no Agreste Setentrional, Abimael Santos exerceu por muitos anos a profissão de eletricista. No Legislativo estadual, onde cumpre o primeiro mandato, ele  planeja atuar em favor da capital do jeans de Pernambuco e de todos os municípios do Polo de Confecções. A crise hídrica que afeta desde sempre a região também preocupa o deputado estreante. Ele pretende cobrar do Governo ações para regularizar o abastecimento d´água no Agreste. ",
       foto: "/images/abimael_santos.jpg",
-      votos: 43.53,
+      votos: 43530,
       candidatura: "2022-hoje",
     },
   ];
