@@ -4,10 +4,10 @@ export default function handler(req, res) {
       nome: "Abimael dos Santos Pereira",
       partido: "PL",
       descricao:
-        "Natural de Toritama, no Agreste Setentrional, Abimael Santos exerceu por muitos anos a profissão de eletricista. No Legislativo estadual, onde cumpre o primeiro mandato, ele  planeja atuar em favor da capital do jeans de Pernambuco e de todos os municípios do Polo de Confecções. A crise hídrica que afeta desde sempre a região também preocupa o deputado estreante. Ele pretende cobrar do Governo ações para regularizar o abastecimento d´água no Agreste. ",
+        "Crítico da gestão do PSB nos últimos oito anos, Abimael está ao lado da governadora Raquel Lyra na Casa de Joaquim Nabuco. Seu posicionamento nas votações, no entanto, será sempre contrário às pautas que influenciam o custo de vida da população, a exemplo do aumento de impostos. Apoiador do ex-presidente Jair Bolsonaro, o parlamentar teve como slogan de sua campanha ao Legislativo estadual “Te Liberta Pernambuco!”, e se apresenta nas redes sociais como cristão, patriota, defensor da família e dos bons costumes.",
       foto: "/images/abimael_santos.jpg",
       votos: 43530,
-      candidatura: "2022-hoje",
+      candidatura: "2023-hoje",
     },
   ];
   res.status(200).json(deputado_abimael_santos);

@@ -271,7 +271,7 @@ select:hover {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  background-color: #b5b5b5;
+  background-color: white;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -374,5 +374,48 @@ iframe {
 
 /*-----------------------------------------------------------------------*/
 .descricao {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
+
+
+/*----------------------------------------------------------------------*/
+/* Estilo para o círculo branco com o ícone "i" */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    font-size: 25px;
+    font-style: normal;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    left: 90%;
+}
+
+.info-icon::after {
+        content: attr(data-tooltip); 
+        position: absolute;
+        bottom: 120%; 
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: black;
+        color: white;
+        font-size: 12px;
+        border-radius: 4px;
+        white-space: nowrap; 
+        opacity: 0;
+        visibility: hidden; 
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .info-icon:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+/*---------------------------------------------------------------------*/
