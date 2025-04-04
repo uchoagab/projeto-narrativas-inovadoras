@@ -4,7 +4,7 @@ export default function handler(req, res) {
       {
         nome: "Cleiton Collins",
         partido: "PP",
-        descricao: "Tem atuação legislativa voltada para diversas áreas, com destaque para o combate às drogas, em defesa da Bíblia, da família, da vida, contra o aborto e em defesa de projetos com ênfase na melhoria da saúde da população, atenção às pessoas com deficiência e em situação de marginalização social.",
+        descricao: "Cleiton Gonçalves da Silva (Pastor Cleiton Collins) tem como profissões ser pastor da Assembleia de Deus, radialista e apresentador de TV. Suas participações na Alepe:  Segundo-secretário da Casa – integrante da Mesa Diretora, Vice-presidente da comissão de Cidadania, Direitos Humanos e Participação Popular, Membro titular da Comissão de Saúde, Fundador da Frente Parlamentar em Defesa da Família, da Vida e de Políticas Sobre Drogas (2011) ",
         foto: "/images/cleiton_collins.jpg",
         votos: 50510,
         candidatura: "2003-Hoje"

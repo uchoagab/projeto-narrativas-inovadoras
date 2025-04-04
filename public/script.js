@@ -58,14 +58,14 @@ window.onload = function () {
         const descricao = document.createElement("p");
         descricao.textContent = `Descrição: ${deputado.descricao}`;
 
-        const votos = document.createElement("p");
-        votos.textContent = `Votos: ${deputado.votos}`;
+        //const votos = document.createElement("p");
+        //votos.textContent = `Votos: ${deputado.votos}`;
 
         const candidatura = document.createElement("p");
         candidatura.textContent = `Candidatura: ${deputado.candidatura}`;
 
         cardBack.appendChild(descricao);
-        cardBack.appendChild(votos);
+        //cardBack.appendChild(votos);
         cardBack.appendChild(seguidores);
         cardBack.appendChild(candidatura);
 
