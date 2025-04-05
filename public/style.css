@@ -271,10 +271,13 @@ select:hover {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  background-color: #b5b5b5;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #f0f0f0;
+  max-width: auto;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 iframe {
