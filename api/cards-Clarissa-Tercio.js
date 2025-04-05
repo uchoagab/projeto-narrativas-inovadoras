@@ -4,7 +4,7 @@ export default function handler(req, res) {
       {
         nome: "Clarissa Tércio",
         partido: "PP",
-        descricao: "Nome: Érica Clarissa Borba Cordeiro de Moura (Clarissa Tércio) Profissão: Comunicadora  Participações na Alepe:  ",
+        descricao: "Érica Clarissa Borba Cordeiro de Moura (Clarissa Tércio) Profissão: Comunicadora  Participações na Alepe:  ",
         foto: "/images/clarissa_tercio.jpg",
         votos: 50.789,
         candidatura: "2019-2022"

@@ -4,7 +4,7 @@ export default function handler(req, res) {
       nome: "Joel da Harpa",
       partido: "PL",
       descricao:
-        "Nome: Joel Maurino do Carmo (Joel da Harpa) Profissão: Policial Militar Participações na Alepe: Presidente da comissão de Segurança Pública",
+        "Joel Maurino do Carmo (Joel da Harpa) é um policial militar que na ALEPE já participou como Presidente da comissão de Segurança Pública",
       foto: "/images/joel_da_harpa.jpg",
       votos: 35938,
       candidatura: "2015-Hoje",

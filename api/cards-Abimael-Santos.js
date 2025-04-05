@@ -6,7 +6,7 @@ export default function handler(req, res) {
       descricao:
         "Nome:  Abimael dos Santos Pereira (Abimael Santos) Profissão: Eletricista Participações na Alepe: Vice presidente da Comissão de Assuntos Municipais",
       foto: "/images/abimael_santos.jpg",
-      //votos: 43530,
+      votos: 43530,
       candidatura: "2023-hoje",
     },
   ];

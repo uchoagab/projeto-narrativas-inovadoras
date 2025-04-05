@@ -4,7 +4,7 @@ export default function handler(req, res) {
       nome: "Coronel Alberto Feitosa",
       partido: "PL",
       descricao:
-        "Nome: Alberto Jorge do Nascimento Feitosa (Coronel Alberto Feitosa) Profissão: Tenente-coronel da reserva da PMPE  Participações na Alepe:  Presidente da Comissão de Constituição, Legislação e Justiça",
+        "Alberto Jorge do Nascimento Feitosa (Coronel Alberto Feitosa) é um Tenente-coronel da reserva da PMPE  na Alepe teve atuações como Presidente da Comissão de Constituição, Legislação e Justiça",
       foto: "/images/coronel_alberto_feitosa.jpg",
       votos: 146.847,
       candidatura: "2007-hoje",

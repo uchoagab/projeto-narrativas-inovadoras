@@ -119,14 +119,14 @@ function loadCards(apiUrl, containerId) {
         cardBack.classList.add("card-back");
 
         const descricao = document.createElement("p");
-        descricao.textContent = `Descrição: ${deputado.descricao}`;
+        descricao.textContent = `${deputado.descricao}`;
         descricao.classList.add("descricao");
 
         const votos = document.createElement("p");
         votos.textContent = `Votos: ${deputado.votos}`;
 
         const candidatura = document.createElement("p");
-        candidatura.textContent = `Candidatura: ${deputado.candidatura}`;
+        candidatura.textContent = `Atuação na ALEPE: ${deputado.candidatura}`;
 
         cardBack.appendChild(descricao);
         cardBack.appendChild(votos);
