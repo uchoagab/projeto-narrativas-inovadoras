@@ -4,7 +4,7 @@ export default function handler(req, res) {
       nome: "Abimael dos Santos Pereira",
       partido: "PL",
       descricao:
-        "Nome:  Abimael dos Santos Pereira (Abimael Santos) Profissão: Eletricista Participações na Alepe: Vice presidente da Comissão de Assuntos Municipais",
+        "Nome: Abimael dos Santos Pereira (Abimael Santos) Profissão: Eletricista Participações na Alepe: Vice presidente da Comissão de Assuntos Municipais",
       foto: "/images/abimael_santos.jpg",
       votos: 43530,
       candidatura: "2023-hoje",
