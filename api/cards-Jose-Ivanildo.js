@@ -4,10 +4,10 @@ export default function handler(req, res) {
       nome: "José Ivanildo de Moura Júnior",
       partido: "PP",
       descricao:
-        "Casado com a deputada federal Clarissa Tércio e pai de Clara e Alice, José Ivanildo de Moura Júnior, conhecido como Pastor Júnior Tércio, foi eleito o deputado estadual mais votado de Pernambuco, nas eleições de 2022, com 183.735 votos. ",
+        "José Ivanildo de Moura Júnior (Pastor Júnior Tércio) é um pastor e radialista. Deputado mais votado em 2022 em PE, na ALEPE tem como participações ser Vice-presidente da Comissão de Cidadania, integrou a comissão de Educação, Cultura, Esporte e Lazer",
       foto: "/images/jose_ivanildo.jpg",
       votos: 183.735,
-      candidatura: "2022-Hoje",
+      candidatura: "2023-Hoje",
     },
   ];
   res.status(200).json(deputado_jose_ivanildo);
