@@ -58,14 +58,14 @@ window.onload = function () {
         const descricao = document.createElement("p");
         descricao.textContent = `Descrição: ${deputado.descricao}`;
 
-        const votos = document.createElement("p");
-        votos.textContent = `Votos: ${deputado.votos}`;
+        //const votos = document.createElement("p");
+        //votos.textContent = `Votos: ${deputado.votos}`;
 
         const candidatura = document.createElement("p");
         candidatura.textContent = `Candidatura: ${deputado.candidatura}`;
 
         cardBack.appendChild(descricao);
-        cardBack.appendChild(votos);
+        //cardBack.appendChild(votos);
         cardBack.appendChild(seguidores);
         cardBack.appendChild(candidatura);
 
@@ -119,14 +119,14 @@ function loadCards(apiUrl, containerId) {
         cardBack.classList.add("card-back");
 
         const descricao = document.createElement("p");
-        descricao.textContent = `Descrição: ${deputado.descricao}`;
+        descricao.textContent = `${deputado.descricao}`;
         descricao.classList.add("descricao");
 
         const votos = document.createElement("p");
-        votos.textContent = `Votos: ${deputado.votos}`;
+        votos.textContent = `Votos no último pleito que participou: ${deputado.votos}`;
 
         const candidatura = document.createElement("p");
-        candidatura.textContent = `Candidatura: ${deputado.candidatura}`;
+        candidatura.textContent = `Atuação na ALEPE: ${deputado.candidatura}`;
 
         cardBack.appendChild(descricao);
         cardBack.appendChild(votos);
@@ -419,40 +419,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //------------------------------------------------------------------------------------------------
 //reduto eleitoral
-document.addEventListener("DOMContentLoaded", function() {
-  const selector = document.getElementById("iframeSelector");
-  const iframes = document.querySelectorAll("#iframeContainer iframe");
+document.addEventListener("DOMContentLoaded", function () {
+  // Selecione o iframe padrão pelo ID
+  const defaultIframe = document.getElementById("datawrapper-chart-xc7jR");
 
-  let currentIframe = null; // Armazena o iframe atualmente visível
+  // Exiba o iframe padrão inicialmente
+  if (defaultIframe) {
+      defaultIframe.style.display = "block";
+  }
 
-  selector.addEventListener("change", function() {
-      const selectedId = selector.value;
+  // Adicione um event listener ao seletor para trocar os iframes
+  const iframeSelector = document.getElementById("iframeSelector");
+  const iframeContainer = document.getElementById("iframeContainer");
 
-      if (selectedId) {
-          const selectedIframe = document.getElementById(selectedId);
+  iframeSelector.addEventListener("change", function () {
+      // Oculta todos os iframes
+      const iframes = iframeContainer.querySelectorAll("iframe");
+      iframes.forEach(iframe => {
+          iframe.style.display = "none";
+      });
 
-          if (currentIframe) {
-              // Aplica a classe de saída ao iframe atual
-              currentIframe.classList.add("iframe-slide-exit");
-              currentIframe.classList.remove("iframe-slide-exit-active");
-
-              // Aguarda a conclusão da animação de saída
-              setTimeout(() => {
-                  currentIframe.style.display = "none";
-                  currentIframe.classList.remove("iframe-slide-exit");
-              }, 500); // Tempo igual à duração da transição no CSS
+      // Verifica se o valor selecionado é vazio ("Escolha o seu candidato")
+      const selectedIframeId = iframeSelector.value;
+      if (selectedIframeId === "") {
+          // Exibe o iframe padrão
+          if (defaultIframe) {
+              defaultIframe.style.display = "block";
           }
-
-          // Exibe o novo iframe com a classe de entrada
-          selectedIframe.style.display = "block";
-          selectedIframe.classList.add("iframe-slide-enter");
-          setTimeout(() => {
-              selectedIframe.classList.add("iframe-slide-enter-active");
-              selectedIframe.classList.remove("iframe-slide-enter");
-          }, 10); // Pequeno delay para garantir que a classe seja aplicada
-
-          // Atualiza o iframe atual
-          currentIframe = selectedIframe;
+      } else {
+          // Exibe o iframe correspondente ao valor selecionado
+          const selectedIframe = document.getElementById(selectedIframeId);
+          if (selectedIframe) {
+              selectedIframe.style.display = "block";
+          }
       }
   });
 });
