@@ -373,14 +373,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("height", height);
 
       const posicoesTemas = {
-        1: { x: width * 0.45, y: height * 0.45 },  // Educação
+        1: { x: width * 0.50, y: height * 0.40 },  // Educação
         2: { x: width * 0.75, y: height * 0.30 },  // Religião
-        3: { x: width * 0.25, y: height * 0.75 },  // Militar
+        3: { x: width * 0.20, y: height * 0.60 },  // Militar
         4: { x: width * 0.85, y: height * 0.65 },  // COVID-19
-        5: { x: width * 0.50, y: height * 0.80 },  // Saúde
+        5: { x: width * 0.45, y: height * 0.75 },  // Saúde
         6: { x: width * 0.25, y: height * 0.25 },  // LGBT
         7: { x: width * 0.50, y: height * 0.20 },  // Cultura
-        8: { x: width * 0.20, y: height * 0.45 },  // Estado
+        8: { x: width * 0.15, y: height * 0.40 },  // Estado
       };
 
       nodes.forEach(node => {
