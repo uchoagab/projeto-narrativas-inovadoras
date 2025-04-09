@@ -372,7 +372,56 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("width", width)
         .attr("height", height);
 
-      // Cria simulação de forças
+      const posicoesTemas = {
+        1: { x: width * 0.45, y: height * 0.45 },  // Educação
+        2: { x: width * 0.75, y: height * 0.30 },  // Religião
+        3: { x: width * 0.25, y: height * 0.75 },  // Militar
+        4: { x: width * 0.85, y: height * 0.65 },  // COVID-19
+        5: { x: width * 0.50, y: height * 0.80 },  // Saúde
+        6: { x: width * 0.25, y: height * 0.25 },  // LGBT
+        7: { x: width * 0.50, y: height * 0.20 },  // Cultura
+        8: { x: width * 0.20, y: height * 0.45 },  // Estado
+      };
+
+      nodes.forEach(node => {
+        if (node.tipo === "tema" && posicoesTemas[node.id]) {
+          node.fx = posicoesTemas[node.id].x;
+          node.fy = posicoesTemas[node.id].y;
+        }
+      });
+
+      function posCirculo(centroX, centroY, numItens, raio) {
+        const anguloEspaco = (2 * Math.PI) / numItens;
+        let posicoes = [];
+
+        for (let i = 0; i < numItens; i++) {
+          const angulo = anguloEspaco * i;
+          const x = centroX + raio * Math.cos(angulo);
+          const y = centroY + raio * Math.sin(angulo);
+          posicoes.push({ x, y });
+        }
+
+        return posicoes;
+      }
+
+      const temas = nodes.filter(node => node.tipo === "tema");
+      const proposicoes = nodes.filter(node => node.tipo === "proposicao");
+
+      // Distribui nós menores
+      temas.forEach(tema => {
+        const proposicoesDoTema = proposicoes.filter(p => p.idTema === tema.id);
+
+        if (proposicoesDoTema.length > 0) {
+          const posicoes = posCirculo(tema.fx, tema.fy, proposicoesDoTema.length, 100);
+
+          proposicoesDoTema.forEach((proposicao, index) => {
+            proposicao.fx = posicoes[index].x;
+            proposicao.fy = posicoes[index].y;
+          });
+        }
+      });
+
+      // Cria simulação de forças 
       const simulation = d3
         .forceSimulation(nodes)
         .force(
@@ -380,13 +429,13 @@ document.addEventListener("DOMContentLoaded", () => {
           d3
             .forceLink(edges)
             .id((d) => d.id)
-            .distance(150)
+            .distance(d => d.target.tipo === "proposicao" ? 100 : 150)
         )
-        .force("charge", d3.forceManyBody().strength(-300))
+        .force("charge", d3.forceManyBody().strength(d => d.tipo === "proposicao" ? -100 : -300))
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("x", d3.forceX(width / 2).strength(0.05))
-        .force("y", d3.forceY(height / 2).strength(0.05))
-        .force("collision", d3.forceCollide().radius(d => d.tamanho / 5 + 5)); // Evita sobreposição
+        .force("collision", d3.forceCollide()
+          .radius(d => d.tipo === "proposicao" ? (d.tamanho / 10 + 20) : 0)
+        );
 
       // Arestas
       const link = svg
@@ -408,13 +457,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .enter()
         .append("g")
         .attr("class", "node-group")
-        .style("cursor", "pointer")
-        .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended))
-        .on("click", (event, d) => {
-          window.open(d.url, "_blank");
+        .attr("transform", d => {
+          const x = d.fx || (width * 0.25 + Math.random() * width * 0.5);
+          const y = d.fy || (height * 0.25 + Math.random() * height * 0.5);
+          return `translate(${x},${y})`;
         });
 
       // Temas (Nós maiores)
@@ -425,7 +471,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("r", d => d.tamanho / 10)
         .attr("fill", "#3498db")
         .attr("stroke", "#2980b9")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 2)
+        .style("pointer-events", "none");
 
       // PLs (Nós menores)
       nodeGroups
@@ -439,11 +486,15 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("rx", 3)
         .attr("fill", "#e74c3c")
         .attr("stroke", "#c0392b")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 2)
+        .style("cursor", "pointer")
+        .on("click", (event, d) => {
+          window.open(d.url, "_blank");
+        });
 
       // Rótulos
       nodeGroups
-      .filter(d => d.tipo === "tema")
+        .filter(d => d.tipo === "tema")
         .append("text")
         .attr("class", "label")
         .attr("dy", d => d.tipo === "proposicao" ? 15 : 4)
@@ -461,26 +512,15 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("x2", d => d.target.x)
           .attr("y2", d => d.target.y);
 
-        nodeGroups
-          .attr("transform", d => `translate(${Math.max(20, Math.min(width - 20, d.x))},${Math.max(20, Math.min(height - 20, d.y))})`);
+        nodeGroups.attr("transform", d => `translate(${d.x},${d.y})`);
       });
 
-      function dragstarted(event, d) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      }
-
-      function dragged(event, d) {
-        d.fx = event.x;
-        d.fy = event.y;
-      }
-
-      function dragended(event, d) {
-        if (!event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-      }
+      simulation.alphaDecay(0.1);
+      
+      setTimeout(() => {
+        simulation.stop();
+        console.log("Simulação parada");
+      }, 2000);
 
       // Ajuste redimensão
       window.addEventListener('resize', () => {
@@ -489,8 +529,16 @@ document.addEventListener("DOMContentLoaded", () => {
         
         svg.attr("width", newWidth).attr("height", newHeight);
         simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
-        simulation.force("x", d3.forceX(newWidth / 2).strength(0.05));
-        simulation.force("y", d3.forceY(newHeight / 2).strength(0.05));
+
+        nodes.forEach(node => {
+          if (node.tipo === "tema" && posicoesTemas[node.id]) {
+            const ratioX = posicoesTemas[node.id].x / width;
+            const ratioY = posicoesTemas[node.id].y / height;
+            node.fx = newWidth * ratioX;
+            node.fy = newHeight * ratioY;
+          }
+        });
+        
         simulation.alpha(0.3).restart();
       });
 
