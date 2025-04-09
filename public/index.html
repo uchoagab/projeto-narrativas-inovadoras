@@ -312,22 +312,22 @@
 
         </section>
 
-        <!-- Texto final -->
-        <section class="texto-final">
-            <!-- Seção da Nuvem de Palavras -->
-            <section id="nuvem-palavras">
-                <div id="palavras-container"></div>
-            </section>
-
+        <!-- Seção da Nuvem de Palavras -->
+        <section id="centro">
+            <p>Principais propostas de lei com teor ideológico de origem da bancada evangélica.</p>
+            <div id="palavras-container"></div>
         </section>
+
 
         <!------------------------------------------------------------------------------------------------------------------>
 
-
-
         <section class="reduto-eleitoral">
-            <h2>Reduto Eleitoral</h2>
-            <p>Distribuição da porcentagem dos votos válidos do deputado em cada município de PE.</p>
+
+            <section class="texto">
+                <h2>Reduto Eleitoral</h2>
+                <p>Distribuição da porcentagem dos votos válidos do deputado em cada município de PE.</p>
+            </section>
+
             <select id="iframeSelector">
                 <option value="">Escolha o seu candidato:</option>
                 <option value="datawrapper-chart-cDcZh">William Brigido</option>
@@ -353,33 +353,24 @@
 
     </main>
 
+    <!--------------------------------------------------------------------------------------------------------------------------->
+    
 
-    <section class="grafico-carrossel">
-        <!-- Botões de navegação -->
-        <button id="prevGraph" class="carousel-button">&#10094;</button>
-        <button id="nextGraph" class="carousel-button">&#10095;</button>
+        <select id="anoSelecionado">
+            <option value="todos">Todos os Anos</option>
+            <option value="2014">2014</option>
+            <option value="2018">2018</option>
+            <option value="2022">2022</option>
+        </select>
+        <div id="grafico"></div>
 
-        <!-- Contêiner do carrossel -->
-        <div id="graphCarousel" class="carousel-container">
-            <!-- Gráfico de Ano Selecionado -->
-            <div class="carousel-item">
-                <select id="anoSelecionado">
-                    <option value="todos">Todos os Anos</option>
-                    <option value="2014">2014</option>
-                    <option value="2018">2018</option>
-                    <option value="2022">2022</option>
-                </select>
-                <div id="grafico"></div>
-            </div>
 
             <!-- Gráfico Sunburst -->
-            <div class="carousel-item">
-                <div id="sunburst-graph"></div>
-            </div>
+        <section class ="texto">
+            <div id="sunburst-graph"></div>
+        </section>
 
-            <!-- Adicione mais gráficos aqui conforme necessário -->
-        </div>
-    </section>
+
 
 
     <script src="/script.js"></script>
