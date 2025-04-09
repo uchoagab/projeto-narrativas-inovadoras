@@ -254,6 +254,7 @@ fetch("/api/votos")
   .catch((error) => console.error("Erro ao carregar dados:", error));
 
 //--------------------------Nuvem de Palavras--------------------------
+/*
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("palavras-container");
   const margin = 20;
@@ -344,6 +345,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
         posicionarElemento(cloud, elementosExistentes);
       });
+    })
+    .catch((error) => console.error("Erro ao carregar os dados:", error));
+});
+*/
+
+//--------------------------Gráfico de Rede--------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("rede-container");
+
+  fetch("/api/grafico-rede")
+    .then((response) => response.json())
+    .then((data) => {
+      const nodes = data.nodes;
+      const edges = data.edges;
+
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+
+      container.innerHTML = '';
+      
+      // Cria SVG
+      const svg = d3
+        .select("#rede-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      // Cria simulação de forças
+      const simulation = d3
+        .forceSimulation(nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(edges)
+            .id((d) => d.id)
+            .distance(150)
+        )
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("x", d3.forceX(width / 2).strength(0.05))
+        .force("y", d3.forceY(height / 2).strength(0.05))
+        .force("collision", d3.forceCollide().radius(d => d.tamanho / 5 + 5)); // Evita sobreposição
+
+      // Arestas
+      const link = svg
+        .append("g")
+        .selectAll(".link")
+        .data(edges)
+        .enter()
+        .append("line")
+        .attr("class", "link")
+        .attr("stroke", "#999")
+        .attr("stroke-width", 1)
+        .attr("stroke-opacity", 0.6);
+
+      // Nós
+      const nodeGroups = svg
+        .append("g")
+        .selectAll(".node-group")
+        .data(nodes)
+        .enter()
+        .append("g")
+        .attr("class", "node-group")
+        .style("cursor", "pointer")
+        .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended))
+        .on("click", (event, d) => {
+          window.open(d.url, "_blank");
+        });
+
+      // Temas (Nós maiores)
+      nodeGroups
+        .filter(d => d.tipo === "tema")
+        .append("circle")
+        .attr("class", "node-circle")
+        .attr("r", d => d.tamanho / 10)
+        .attr("fill", "#3498db")
+        .attr("stroke", "#2980b9")
+        .attr("stroke-width", 2);
+
+      // PLs (Nós menores)
+      nodeGroups
+        .filter(d => d.tipo === "proposicao")
+        .append("rect")
+        .attr("class", "node-rect")
+        .attr("width", d => d.tamanho / 5)
+        .attr("height", d => d.tamanho / 5)
+        .attr("x", d => -d.tamanho / 10)
+        .attr("y", d => -d.tamanho / 10)
+        .attr("rx", 3)
+        .attr("fill", "#e74c3c")
+        .attr("stroke", "#c0392b")
+        .attr("stroke-width", 2);
+
+      // Rótulos
+      nodeGroups
+      .filter(d => d.tipo === "tema")
+        .append("text")
+        .attr("class", "label")
+        .attr("dy", d => d.tipo === "proposicao" ? 15 : 4)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#fff")
+        .attr("font-size", d => d.tamanho / 4)
+        .attr("pointer-events", "none")
+        .text(d => d.palavra);
+
+      // Atualiza posições
+      simulation.on("tick", () => {
+        link
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+        nodeGroups
+          .attr("transform", d => `translate(${Math.max(20, Math.min(width - 20, d.x))},${Math.max(20, Math.min(height - 20, d.y))})`);
+      });
+
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // Ajuste redimensão
+      window.addEventListener('resize', () => {
+        const newWidth = container.offsetWidth;
+        const newHeight = container.offsetHeight;
+        
+        svg.attr("width", newWidth).attr("height", newHeight);
+        simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+        simulation.force("x", d3.forceX(newWidth / 2).strength(0.05));
+        simulation.force("y", d3.forceY(newHeight / 2).strength(0.05));
+        simulation.alpha(0.3).restart();
+      });
+
     })
     .catch((error) => console.error("Erro ao carregar os dados:", error));
 });
