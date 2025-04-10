@@ -352,10 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("scroll", () => {
   const fallMans = document.querySelectorAll(".fallMan");
   const scrollPosition = window.scrollY;
-  const maxScroll = 3500;
+  const maxScroll = 4000;
 
   fallMans.forEach((fallMan, index) => {
-    let newTop = scrollPosition * 0.2;
+    let newTop = scrollPosition * 0.1;
     let opacity = 1 - scrollPosition / maxScroll;
 
     opacity = Math.max(0, Math.min(1, opacity));
@@ -371,11 +371,11 @@ document.addEventListener("scroll", () => {
 document.addEventListener("scroll", () => {
   const h1 = document.getElementById("titulo"); 
   const scrollPosition = window.scrollY; 
-  const maxScroll = 3900; 
+  const maxScroll = 7500; 
 
   if (scrollPosition <= maxScroll) {
 
-    let newTop = Math.min(scrollPosition * 1, 4000);
+    let newTop = Math.min(scrollPosition * 1, 5700);
 
     h1.style.transform = `translateY(${newTop}px)`;
   }

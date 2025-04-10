@@ -1,6 +1,5 @@
 body {
-  font-family: "Quicksand", sans-serif;
-  background: url("images/backgroundRyanMaior.png") no-repeat top center;
+  background: url("images/backRyanAtt.png") no-repeat top center;
   background-size: 100% auto;
   margin: 0;
   padding: 0;
@@ -10,20 +9,20 @@ body {
 
 header {
     text-align: center;
-    margin-top: 4000px;
+    margin-top: 5700px;
 }
 
 /*-------------------------------------*/
 /* Texto Inicial e Final */
 main section.texto,
 main section.texto-final {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: justify;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
 }
 
-/* Se��o Gr�fico + Texto lado a lado */
+/* Secaoo Grafico + Texto lado a lado */
 .grafico-e-texto {
   display: flex;
   flex-wrap: wrap;
@@ -63,9 +62,9 @@ main section.texto-final {
 /*-------------------------------------*/
 /* Tipografia */
 h1 {
-  font-family: "Roboto Slab", sans-serif;
-  font-weight: 1000;
-  color: #e5d5b2;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 1000;
+    color: #e5d5b2;
 }
 
 #titulo {
@@ -84,12 +83,12 @@ h3 {
 }
 
 p {
-  font-family: "Montserrat", serif;
-  font-weight: 400;
-  font-size: 1.8em;
-  line-height: 1.6;
-  color: white;
-  margin-bottom: 10px;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 1.8em;
+    line-height: 1.6;
+    color: white;
+    margin-bottom: 10px;
 }
 
 #whiteSpace{
@@ -435,4 +434,10 @@ iframe {
     align-items: center;
     height: auto;
 }
-
+/*------------------ FONTE --------------*/
+@font-face {
+    font-family: "Lora";
+    src: url("fonts/Lora.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
