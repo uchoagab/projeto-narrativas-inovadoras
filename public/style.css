@@ -87,7 +87,7 @@ h1 {
 h2,
 h3 {
     color: #E5D5B2;
-    font-family: 'KensingtonDemi', sans-serif;
+    font-family: 'Antonio-Regular';
     font-weight: 5000;
     font-style: normal;
     font-size: 36pt;
@@ -174,12 +174,12 @@ p {
 
 .card-front h3 {
   font-size: 1.5em;
-  font-family: 'NewYork', serif;
+  font-family: 'Antonio-Regular', serif;
   font-size: 18pt;
 }
 .card-front p {
   margin: 0px 0;
-  font-family: 'NewYork', serif;
+  font-family: 'Antonio-Regular', serif;
   font-size: 10pt;
 }
 
@@ -232,10 +232,10 @@ select:hover {
   width: 80%;
   max-width: 1200px;
   height: 500px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #ccc;
+  /*background: #081c3c;*/
+  border: 2px /*solid #ccc*/;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.15)*/;
   overflow: hidden;
 }
 
@@ -245,7 +245,8 @@ select:hover {
   padding: 10px 20px;
   background: #fff;
   border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+  
   /* Animação de flutuação suave */
   animation: flutuar 4s ease-in-out infinite;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -257,6 +258,7 @@ select:hover {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  font-family: 'Antonio-Regular';
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -451,7 +453,7 @@ iframe {
     flex: 1 1 40%;
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -474,6 +476,10 @@ iframe {
     src: url("fonts/NewYorkMedium-Regular.otf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Antonio-Regular';
+  src: url('fonts/Antonio-Regular.ttf') format('truetype');
+}
 /*------------------------------------------------------------------------*/
 
 #centro {
@@ -486,7 +492,7 @@ iframe {
     max-width: 1000px; 
     margin: 0 auto; 
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
     #centro p {
         font-family: 'NewYork', serif;
