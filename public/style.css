@@ -46,7 +46,7 @@ main section.texto-final {
   /*background-color: #ffffff;*/
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,8 +56,9 @@ main section.texto-final {
 #sunburst-graph {
     max-width: 400px;
     margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 5%;
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
 }
 
 /*-------------------------------------*/
@@ -105,7 +106,7 @@ p {
 }
 
 #whiteSpace{
-    padding-bottom: 1400px;
+    padding-bottom: 1100px;
 }
 
 /*Style dos flashcards*/
@@ -123,7 +124,7 @@ p {
     height: 600px;
     width: 400px;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);*/
     overflow: visible;
     text-align: center;
     perspective: 1000px; /* Para o efeito de 3D */
@@ -159,7 +160,7 @@ p {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);*/
   padding: 15px;
   background: #082441;
 }
@@ -203,7 +204,7 @@ p {
   margin: 0 auto;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
 }
 
 #anoSelecionado {
