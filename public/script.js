@@ -11,29 +11,38 @@ fetch("/api/sunburst")
       hovertemplate:
         "<b>%{label}</b><br>%{customdata}<br>Deputados: %{value}<extra></extra>",
       branchvalues: "total",
-      textinfo: "label+value", //Exibe nome e número de deputados
+      textinfo: "label+value", // Exibe nome e número de deputados
       insidetextorientation: "radial",
+      marker: {
+        colors: [
+          "#071b3b", // Cor para o primeiro segmento
+          "#E82828", // Cor para o segundo segmento
+          "#FFFFFF", // Cor para o terceiro segmento
+          "#E89D28", // Cor para o quarto segmento
+          "#A0BA35", // Adicione mais cores conforme necessário
+        ],
+      },
     };
 
     const layout = {
-          title: {
-            text: "Composição da Bancada Evangélica da ALEPE", 
-            font: {
-              color: "#FFFFFF", 
-              size: 18,
-              family: "NewYork, sans-serif"
-            }
-          },
-          margin: { l: 0, r: 0, b: 0, t: 50 },
-          height: 250,
-          plot_bgcolor: "#071b3b",
-          paper_bgcolor: "#071b3b",
-          font: {
-              color: "#FFFFFF", // Cor do texto do hover    
-              size: 12,
-              family: "Arial, sans-serif",
-            },
-        };
+      title: {
+        text: "Composição da Bancada Evangélica da ALEPE",
+        font: {
+          color: "#FFFFFF",
+          size: 18,
+          family: "NewYork, sans-serif",
+        },
+      },
+      margin: { l: 0, r: 0, b: 0, t: 50 },
+      height: 250,
+      plot_bgcolor: "#071b3b",
+      paper_bgcolor: "#071b3b",
+      font: {
+        color: "#FFFFFF", // Cor do texto do hover
+        size: 12,
+        family: "Arial, sans-serif",
+      },
+    };
 
     Plotly.newPlot("sunburst-graph", [trace], layout, {
       displayModeBar: false,
@@ -398,7 +407,7 @@ document.addEventListener("scroll", () => {
 
   if (scrollPosition <= maxScroll) {
 
-    let newTop = Math.min(scrollPosition * 1, 5800);
+    let newTop = Math.min(scrollPosition * 1, 5750);
 
     h1.style.transform = `translateY(${newTop}px)`;
   }
