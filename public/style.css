@@ -119,14 +119,14 @@ p {
 }
 
 .card {
-  height: 600px;
-  width: 400px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: visible;
-  text-align: center;
-  perspective: 1000px; /* Para o efeito de 3D */
-  background-color: rgb(54, 56, 55);
+    height: 600px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    text-align: center;
+    perspective: 1000px; /* Para o efeito de 3D */
+    background-color: #1a304c;
 }
 
 .card-inner {
@@ -284,7 +284,7 @@ select:hover {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: #071b3b;
     max-width: auto;
     margin-left: auto;
     margin: 0;
@@ -299,6 +299,11 @@ iframe {
     height: 500px;
     border: none;
     display: none;
+}
+
+#iframeSelector {
+    background-color: #1a304c;
+    color: white;
 }
 
 /*-------------------------------------*/

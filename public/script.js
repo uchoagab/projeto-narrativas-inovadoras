@@ -16,10 +16,24 @@ fetch("/api/sunburst")
     };
 
     const layout = {
-      title: "Composição da Bancada Evangélica da ALEPE",
-      margin: { l: 0, r: 0, b: 0, t: 50 },
-      height: 250,
-    };
+          title: {
+            text: "Composição da Bancada Evangélica da ALEPE", 
+            font: {
+              color: "#FFFFFF", 
+              size: 18,
+              family: "NewYork, sans-serif"
+            }
+          },
+          margin: { l: 0, r: 0, b: 0, t: 50 },
+          height: 250,
+          plot_bgcolor: "#071b3b",
+          paper_bgcolor: "#071b3b",
+          font: {
+              color: "#FFFFFF", // Cor do texto do hover    
+              size: 12,
+              family: "Arial, sans-serif",
+            },
+        };
 
     Plotly.newPlot("sunburst-graph", [trace], layout, {
       displayModeBar: false,
@@ -174,45 +188,45 @@ fetch("/api/votos")
           ? anos.map((_, index) => index)
           : [anos.indexOf(anoSelecionado)];
 
-      const traces = partidos.map((partido) => ({
+      const coresPartidos = ["#A0BA35", "#0F76F8", "#F5F5F5", "#FF5722"]; // Cores para os partidos
+
+      const traces = partidos.map((partido, index) => ({
         x: indices.map((i) => anos[i]),
         y: indices.map((i) => partido.votos[i]),
         mode: "lines+markers",
         name: partido.nome,
-        line: { width: 3 },
+        line: { color: coresPartidos[index], width: 3 }, // Aplica a cor correspondente ao partido
         marker: { size: 8 },
         hovertemplate: "%{y} votos (%{text}%)<extra></extra>",
         text: indices.map((i) => partido.percentual[i].toFixed(2)),
       }));
 
-      //Linha total de votos
+      // Linha total de votos
       traces.push({
         x: indices.map((i) => anos[i]),
         y: indices.map((i) => data.total[i]),
         mode: "lines+markers",
         name: "Total",
-        line: { color: "#000", width: 2, dash: "dash" },
+        line: { color: "#E0E0E0", width: 2, dash: "dash" }, // Altera a cor para vermelho
         marker: { size: 8 },
         hovertemplate: "%{y} votos (%{text}%)<extra></extra>",
         text: indices.map((i) => data.percentualTotal[i].toFixed(2)),
       });
 
+      const coresEventos = ["#E89D28", "#E89D28"]; // Cores para os eventos históricos
+
       const eventosHistoricos = [
-        { ano: 2014, descricao: "(Início da Operação Lava Jato)", cor: "blue" },
-        {
-          ano: 2018,
-          descricao: "(Bolsonaro se lança à presidência)",
-          cor: "blue",
-        },
+        { ano: 2014, descricao: "(Início da Operação Lava Jato)" },
+        { ano: 2018, descricao: "(Bolsonaro se lança à presidência)" },
       ];
 
-      eventosHistoricos.forEach((evento) => {
+      eventosHistoricos.forEach((evento, index) => {
         traces.push({
           x: [evento.ano, evento.ano],
           y: [0, Math.max(...data.total)],
           mode: "lines",
           name: evento.descricao,
-          line: { color: evento.cor, width: 2, dash: "dot" },
+          line: { color: coresEventos[index], width: 2, dash: "dot" }, // Aplica a cor correspondente ao evento
           hoverinfo: "none",
           hovertemplate: `<b>${evento.descricao}</b><extra></extra>`,
           showlegend: false,
@@ -224,8 +238,17 @@ fetch("/api/votos")
           anoSelecionado === "todos"
             ? "Crescimento da Votação por Partido (2014-2022)"
             : `Votação em ${anoSelecionado}`,
-        xaxis: { title: "Ano" },
-        yaxis: { title: "Número de Votos" },
+                font: {
+                    color: "white" 
+                },
+        xaxis: {
+          title: { text: "Ano", font: { color: "white" } },
+          tickfont: { color: "white" },
+        },
+        yaxis: {
+          title: { text: "Número de Votos", font: { color: "white" } },
+          tickfont: { color: "white" },
+        },
         hovermode: "closest",
         hoverlabel: {
           bgcolor: "white",
@@ -235,10 +258,10 @@ fetch("/api/votos")
           namelength: -1,
         },
         transition: { duration: 500 },
-        plot_bgcolor: "#f9f9f9",
-        paper_bgcolor: "#f9f9f9",
-        margin: { t: 60, b: 60, l: 60, r: 60 },
-      };
+        plot_bgcolor: "#071b3b",
+        paper_bgcolor: "#071b3b",
+        margin: { t: 60, b: 60, l: 60, r: 60 },
+      };
 
       Plotly.react("grafico", traces, layout, { displayModeBar: false });
     }
