@@ -364,6 +364,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "#E82828",
       "#E89D28",
       "#A0BA35",
+      "#007BFF",
+      "#E82828",
+      "#E89D28",
     ];
     return cores[index % cores.length];
   }
