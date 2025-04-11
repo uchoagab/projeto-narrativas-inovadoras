@@ -95,10 +95,10 @@ h3 {
 }
 
 p {
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-size: 1.8em;
-    line-height: 1.6;
+    font-family: 'NewYork', serif;
+    font-size: 24pt;
+    line-height: 32pt;
+    letter-spacing: -0.4px;
     color: white;
     margin-bottom: 10px;
 }
@@ -172,10 +172,13 @@ p {
 
 .card-front h3 {
   font-size: 1.5em;
+  font-family: 'NewYork', serif;
+  font-size: 18pt;
 }
 .card-front p {
   margin: 0px 0;
-  font-size: 0.1em;
+  font-family: 'NewYork', serif;
+  font-size: 10pt;
 }
 
 .card-back {
@@ -190,7 +193,8 @@ p {
 
 .card-back p {
   margin: 10px 0;
-  font-size: 1.3em;
+  font-family: 'NewYork', serif;
+  font-size: 15pt;
 }
 
 #grafico {
@@ -461,4 +465,9 @@ iframe {
 @font-face {
     font-family: 'KensingtonDemi';
     src: url('fonts/KensingtonDemi.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "NewYork";
+    src: url("fonts/NewYorkMedium-Regular.otf") format("truetype");
 }
