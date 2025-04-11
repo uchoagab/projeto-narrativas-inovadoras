@@ -236,7 +236,7 @@ fetch("/api/votos")
       const layout = {
         title:
           anoSelecionado === "todos"
-            ? "Crescimento da Votação por Partido (2014-2022)"
+            ? "Crescimento da Votação por Partido para o Cargo de Dep. Estadual (2014-2022)"
             : `Votação em ${anoSelecionado}`,
                 font: {
                     color: "white" 
