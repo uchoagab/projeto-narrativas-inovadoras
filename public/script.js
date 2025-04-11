@@ -39,7 +39,7 @@ fetch("/api/sunburst")
       paper_bgcolor: "#071b3b",
       font: {
         color: "#FFFFFF", // Cor do texto do hover
-        size: 12,
+        size: 15,
         family: "Arial, sans-serif",
       },
     };
