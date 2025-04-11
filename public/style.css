@@ -243,7 +243,7 @@ select:hover {
 .cloud {
   position: absolute;
   padding: 10px 20px;
-  background: #fff;
+  /*background: #082441*/;
   border-radius: 50px;
   /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
   

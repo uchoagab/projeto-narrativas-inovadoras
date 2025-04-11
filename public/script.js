@@ -355,12 +355,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("Não foi possível posicionar o elemento:", el.textContent);
   }
 
+  function colorirPalavra(index) {
+    const cores = [
+      "#007BFF",
+      "#E82828",
+      "#E89D28",
+      "#A0BA35",
+      "#E82828",
+      "#E89D28",
+      "#A0BA35",
+    ];
+    return cores[index % cores.length];
+  }
+
   fetch("/api/nuvem-palavras")
     .then((response) => response.json())
     .then((data) => {
       const elementosExistentes = [];
 
-      data.forEach((item) => {
+      data.forEach((item, index) => {
         const cloud = document.createElement("div");
         cloud.classList.add("cloud");
 
@@ -369,6 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.target = "_blank";
         link.textContent = item.palavra;
         link.style.fontSize = `${item.tamanho}%`;
+        link.style.color = colorirPalavra(index);
 
         cloud.appendChild(link);
         container.appendChild(cloud);
