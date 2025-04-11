@@ -407,7 +407,7 @@ document.addEventListener("scroll", () => {
 
   if (scrollPosition <= maxScroll) {
 
-    let newTop = Math.min(scrollPosition * 1, 5750);
+    let newTop = Math.min(scrollPosition * 1, 6150);
 
     h1.style.transform = `translateY(${newTop}px)`;
   }

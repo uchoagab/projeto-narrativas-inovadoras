@@ -9,7 +9,7 @@ body {
 
 header {
     text-align: center;
-    margin-top: 5700px;
+    margin-top: 6200px;
 }
 
 /*-------------------------------------*/
@@ -85,7 +85,7 @@ h1 {
 
 h2,
 h3 {
-    color: White;
+    color: #E5D5B2;
     font-family: 'KensingtonDemi', sans-serif;
     font-weight: 5000;
     font-style: normal;
@@ -97,7 +97,7 @@ h3 {
 
 p {
     font-family: 'NewYork', serif;
-    font-size: 24pt;
+    font-size: 20pt;
     line-height: 32pt;
     letter-spacing: -0.4px;
     color: white;
@@ -477,18 +477,16 @@ iframe {
 
 #centro {
     display: flex;
-    flex-direction: column; /* Coloca os elementos um abaixo do outro */
-    align-items: center; /* Centraliza os elementos horizontalmente */
-    justify-content: center; /* Alinha os elementos verticalmente no centro */
-    text-align: center; /* Centraliza o texto dentro dos elementos */
-    padding: 20px; /* Espaçamento interno */
-    max-width: 1000px; /* Largura máxima para manter consistência com outros elementos da main */
-    margin: 0 auto; /* Centraliza a section na tela */
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    padding: 20px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-
-    /* Estilo para o parágrafo dentro da section#centro */
     #centro p {
         font-family: 'NewYork', serif;
         font-size: 20pt;
@@ -498,18 +496,17 @@ iframe {
         margin-bottom: 10px;
     }
 
-/* Estilo para o container de palavras (exemplo) */
 #palavras-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 10px; /* Espaço entre os itens */
-    width: 100%; /* Ocupa toda a largura disponível */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px; 
+    width: 100%; 
 }
 
 .linha-separadora {
-    width: 80%; /* Largura da linha (ajuste conforme necessário) */
-    height: 1px; /* Altura da linha */
-    background-color: #ccc; /* Cor da linha */
-    margin: 20px auto; /* Espaçamento acima e abaixo da linha */
+    width: 80%; 
+    height: 1px; 
+    background-color: #ccc; 
+    margin: 20px auto; 
 }
