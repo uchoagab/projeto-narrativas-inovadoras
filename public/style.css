@@ -9,7 +9,7 @@ body {
 
 header {
     text-align: center;
-    margin-top: 5800px;
+    margin-top: 5700px;
 }
 
 /*-------------------------------------*/
@@ -54,9 +54,10 @@ main section.texto-final {
 }
 
 #sunburst-graph {
-  width: 28%;
-  height: 28%;
-  left: 50%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /*-------------------------------------*/
@@ -105,7 +106,7 @@ p {
 }
 
 #whiteSpace{
-    padding-bottom: 1550px;
+    padding-bottom: 1400px;
 }
 
 /*Style dos flashcards*/
@@ -472,3 +473,6 @@ iframe {
     font-family: "NewYork";
     src: url("fonts/NewYorkMedium-Regular.otf") format("truetype");
 }
+
+/*------------------------------------------------------------------------*/
+
